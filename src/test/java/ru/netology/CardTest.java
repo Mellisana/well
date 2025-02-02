@@ -2,6 +2,7 @@ package ru.netology;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebDriver;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -36,8 +37,8 @@ public class CardTest {
     @Test
     public void shouldHyphenInNameField() {
 
-        $("[data-test-id=name] input").setValue("Николай Миклухо-Маклай");
-        $("[data-test-id=phone] input").setValue("+79111111111");
+        $("[data-test-id=name] input").setValue("Николай Иван-Чай");
+        $("[data-test-id=phone] input").setValue("+79000000000");
         $("[data-test-id=agreement]").click();
         $("[class='button__text']").click();
         $("[data-test-id=order-success]").shouldHave(exactText("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время."));
@@ -56,7 +57,7 @@ public class CardTest {
     @Test
     public void shouldEmptyPhoneField() {
 
-        $("[data-test-id=name] input").setValue("Иванов Иван");
+        $("[data-test-id=name] input").setValue("Петров Олег");
         $("[data-test-id=phone] input").setValue("");
         $("[data-test-id=agreement]").click();
         $("[class='button__text']").click();
@@ -66,7 +67,7 @@ public class CardTest {
     @Test
     public void shouldPhoneWithoutPlusSymbol() {
 
-        $("[data-test-id=name] input").setValue("Иванов Иван");
+        $("[data-test-id=name] input").setValue("Нечаев Иван");
         $("[data-test-id=phone] input").setValue("89111111111");
         $("[data-test-id=agreement]").click();
         $("[class='button__text']").click();
@@ -97,6 +98,15 @@ public class CardTest {
     public void shouldCheckboxNotMarked() {
 
         $("[data-test-id=name] input").setValue("Иванов Иван");
+        $("[data-test-id=phone] input").setValue("+79111111111");
+        $("[class='button__text']").click();
+        $("[data-test-id=agreement].input_invalid .checkbox__text").shouldHave(text("Я соглашаюсь"));
+    }
+
+    @Test
+    public void Name() {
+
+        $("[data-test-id=name] input").setValue("Граев Пётр");
         $("[data-test-id=phone] input").setValue("+79111111111");
         $("[class='button__text']").click();
         $("[data-test-id=agreement].input_invalid .checkbox__text").shouldHave(text("Я соглашаюсь"));
