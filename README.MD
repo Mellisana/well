@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/xsj0l84pgsgn9p6f?svg=true)](https://ci.appveyor.com/project/Mellisana/https-github-com-mellisana-well)
