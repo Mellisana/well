@@ -1,4 +1,4 @@
-image: Ubuntu  # образ для сборки
+image: Ubuntu2004  # образ для сборки
 
 stack: jdk 11  # версия JDK
 
@@ -9,9 +9,15 @@ branches:
 build: off  # будем использовать свой скрипт сборки
 
 install:
-  # запускаем SUT (& означает, что в фоновом режиме не блокируем терминал для запуска тестов)
-  - java -jar ./artifacts/app-order.jar &
+  # Запускаем SUT,
+  # имя файла SUT будет отличаться в каждой задаче.
+  # & означает, что в фоновом режиме не блокируем терминал для запуска тестов,
+  # обязательно должен быть для запуска SUT в CI
+  - java -jar ./artifacts/app-mbank.jar &
+  - chmod +x gradlew
 
 build_script:
-  - chmod +x gradlew
-  - ./gradlew test -Dselenide.headless=true --info  # запускаем тест, флаг --info позволяет выводить больше информации
+  # Запускаем автотесты
+  # Для проектов на базе Selenide необходимо добавить параметр для запуска браузера
+  # в headless режиме -Dselenide.headless=true, параметр --info должен остаться
+  - ./gradlew test --info
