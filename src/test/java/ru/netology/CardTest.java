@@ -28,6 +28,7 @@ public class CardTest {
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
+        driver.get("http://localhost:9999");
     }
 
     @AfterEach
@@ -62,7 +63,7 @@ public class CardTest {
     }
 
     @Test
-    public void Name() {
+    public void shouldName() {
         driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Граев Пётр");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79111111111");
@@ -140,7 +141,7 @@ public class CardTest {
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.className("button")).click();
 
-        String text = driver.findElement(By.cssSelector("[data-test-id=phone].input_invalid .input__sub")).getText();
+        String text = driver.findElement(By.cssSelector("[data-test-id=name].input_invalid .input__sub")).getText();
         assertEquals("Поле обязательно для заполнения", text.trim());
     }
 
