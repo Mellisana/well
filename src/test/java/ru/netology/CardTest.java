@@ -40,7 +40,6 @@ public class CardTest {
 
     @Test
     void shouldSubmitRequest() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Виктор Иванов");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79206161994");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
@@ -52,7 +51,6 @@ public class CardTest {
 
     @Test
     public void shouldHyphenInNameField() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Николаев Иван-Чай");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79035001010");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
@@ -64,7 +62,6 @@ public class CardTest {
 
     @Test
     public void shouldName() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Граев Пётр");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79111111111");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
@@ -76,7 +73,6 @@ public class CardTest {
 
     @Test
     public void shouldCheckboxNotMarked() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Виктор Иванов");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79206161994");
         driver.findElement(By.className("button")).click();
@@ -88,7 +84,6 @@ public class CardTest {
 
     @Test
     public void shouldEmptyPhoneField() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Петров Олег");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.className("button")).click();
@@ -99,7 +94,6 @@ public class CardTest {
 
     @Test
     public void shouldPhoneWithoutPlusSymbol() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Нечаев Иван");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("89111111111");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
@@ -111,7 +105,6 @@ public class CardTest {
 
     @Test
     public void shouldMoreElevenCharactersInPhone() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иванов Иван");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+791111111119");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
@@ -123,7 +116,6 @@ public class CardTest {
 
     @Test
     public void shouldLessElevenCharactersInPhone() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иванов Иван");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+7911111111");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
@@ -135,9 +127,7 @@ public class CardTest {
 
     @Test
     public void shouldEmptyNameField() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+7911111111");
-        ;
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.className("button")).click();
 
@@ -147,7 +137,6 @@ public class CardTest {
 
     @Test
     public void shouldEmptyNameField2() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Sergeev Asan");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+7911111111");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
@@ -159,7 +148,6 @@ public class CardTest {
 
     @Test
     public void shouldEmptyNameField3() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иванов 23");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+7911111111");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
